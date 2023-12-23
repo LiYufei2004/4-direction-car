@@ -1,0 +1,119 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base_link" [label="base_link"];
+"rim_wheel1_link" [label="rim_wheel1_link"];
+"roller_e_rim_wheel1_link" [label="roller_e_rim_wheel1_link"];
+"roller_n_rim_wheel1_link" [label="roller_n_rim_wheel1_link"];
+"roller_ne_rim_wheel1_link" [label="roller_ne_rim_wheel1_link"];
+"roller_nw_rim_wheel1_link" [label="roller_nw_rim_wheel1_link"];
+"roller_s_rim_wheel1_link" [label="roller_s_rim_wheel1_link"];
+"roller_se_rim_wheel1_link" [label="roller_se_rim_wheel1_link"];
+"roller_sw_rim_wheel1_link" [label="roller_sw_rim_wheel1_link"];
+"roller_w_rim_wheel1_link" [label="roller_w_rim_wheel1_link"];
+"rim_wheel2_link" [label="rim_wheel2_link"];
+"roller_e_rim_wheel2_link" [label="roller_e_rim_wheel2_link"];
+"roller_n_rim_wheel2_link" [label="roller_n_rim_wheel2_link"];
+"roller_ne_rim_wheel2_link" [label="roller_ne_rim_wheel2_link"];
+"roller_nw_rim_wheel2_link" [label="roller_nw_rim_wheel2_link"];
+"roller_s_rim_wheel2_link" [label="roller_s_rim_wheel2_link"];
+"roller_se_rim_wheel2_link" [label="roller_se_rim_wheel2_link"];
+"roller_sw_rim_wheel2_link" [label="roller_sw_rim_wheel2_link"];
+"roller_w_rim_wheel2_link" [label="roller_w_rim_wheel2_link"];
+"rim_wheel3_link" [label="rim_wheel3_link"];
+"roller_e_rim_wheel3_link" [label="roller_e_rim_wheel3_link"];
+"roller_n_rim_wheel3_link" [label="roller_n_rim_wheel3_link"];
+"roller_ne_rim_wheel3_link" [label="roller_ne_rim_wheel3_link"];
+"roller_nw_rim_wheel3_link" [label="roller_nw_rim_wheel3_link"];
+"roller_s_rim_wheel3_link" [label="roller_s_rim_wheel3_link"];
+"roller_se_rim_wheel3_link" [label="roller_se_rim_wheel3_link"];
+"roller_sw_rim_wheel3_link" [label="roller_sw_rim_wheel3_link"];
+"roller_w_rim_wheel3_link" [label="roller_w_rim_wheel3_link"];
+"rim_wheel4_link" [label="rim_wheel4_link"];
+"roller_e_rim_wheel4_link" [label="roller_e_rim_wheel4_link"];
+"roller_n_rim_wheel4_link" [label="roller_n_rim_wheel4_link"];
+"roller_ne_rim_wheel4_link" [label="roller_ne_rim_wheel4_link"];
+"roller_nw_rim_wheel4_link" [label="roller_nw_rim_wheel4_link"];
+"roller_s_rim_wheel4_link" [label="roller_s_rim_wheel4_link"];
+"roller_se_rim_wheel4_link" [label="roller_se_rim_wheel4_link"];
+"roller_sw_rim_wheel4_link" [label="roller_sw_rim_wheel4_link"];
+"roller_w_rim_wheel4_link" [label="roller_w_rim_wheel4_link"];
+"rplidar_link" [label="rplidar_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "base_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_joint" -> "base_link"
+"base_link" -> "rim_wheel1_joint" [label="xyz: 0 0.393 0.016 \nrpy: 1.5708 -0 0"]
+"rim_wheel1_joint" -> "rim_wheel1_link"
+"rim_wheel1_link" -> "roller_e_rim_wheel1_joint" [label="xyz: 0.0271 0 0.011 \nrpy: -1.5708 0 0"]
+"roller_e_rim_wheel1_joint" -> "roller_e_rim_wheel1_link"
+"rim_wheel1_link" -> "roller_n_rim_wheel1_joint" [label="xyz: 0 0.0271 0.011 \nrpy: -1.5708 1.11022e-16 1.5708"]
+"roller_n_rim_wheel1_joint" -> "roller_n_rim_wheel1_link"
+"rim_wheel1_link" -> "roller_ne_rim_wheel1_joint" [label="xyz: 0.0191626 0.0191626 -0.011 \nrpy: -1.5708 -5.55112e-17 0.785398"]
+"roller_ne_rim_wheel1_joint" -> "roller_ne_rim_wheel1_link"
+"rim_wheel1_link" -> "roller_nw_rim_wheel1_joint" [label="xyz: -0.0191626 0.0191626 -0.011 \nrpy: -1.5708 1.11022e-16 2.35619"]
+"roller_nw_rim_wheel1_joint" -> "roller_nw_rim_wheel1_link"
+"rim_wheel1_link" -> "roller_s_rim_wheel1_joint" [label="xyz: 0 -0.0271 0.011 \nrpy: -1.5708 -1.11022e-16 -1.5708"]
+"roller_s_rim_wheel1_joint" -> "roller_s_rim_wheel1_link"
+"rim_wheel1_link" -> "roller_se_rim_wheel1_joint" [label="xyz: 0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 5.55112e-17 -0.785398"]
+"roller_se_rim_wheel1_joint" -> "roller_se_rim_wheel1_link"
+"rim_wheel1_link" -> "roller_sw_rim_wheel1_joint" [label="xyz: -0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 -1.11022e-16 -2.35619"]
+"roller_sw_rim_wheel1_joint" -> "roller_sw_rim_wheel1_link"
+"rim_wheel1_link" -> "roller_w_rim_wheel1_joint" [label="xyz: -0.0271 0 0.011 \nrpy: -1.5708 -0 3.14159"]
+"roller_w_rim_wheel1_joint" -> "roller_w_rim_wheel1_link"
+"base_link" -> "rim_wheel2_joint" [label="xyz: 0.393 0 0.016 \nrpy: 1.5708 -5.55112e-17 -1.5708"]
+"rim_wheel2_joint" -> "rim_wheel2_link"
+"rim_wheel2_link" -> "roller_e_rim_wheel2_joint" [label="xyz: 0.0271 0 0.011 \nrpy: -1.5708 0 0"]
+"roller_e_rim_wheel2_joint" -> "roller_e_rim_wheel2_link"
+"rim_wheel2_link" -> "roller_n_rim_wheel2_joint" [label="xyz: 0 0.0271 0.011 \nrpy: -1.5708 1.11022e-16 1.5708"]
+"roller_n_rim_wheel2_joint" -> "roller_n_rim_wheel2_link"
+"rim_wheel2_link" -> "roller_ne_rim_wheel2_joint" [label="xyz: 0.0191626 0.0191626 -0.011 \nrpy: -1.5708 -5.55112e-17 0.785398"]
+"roller_ne_rim_wheel2_joint" -> "roller_ne_rim_wheel2_link"
+"rim_wheel2_link" -> "roller_nw_rim_wheel2_joint" [label="xyz: -0.0191626 0.0191626 -0.011 \nrpy: -1.5708 1.11022e-16 2.35619"]
+"roller_nw_rim_wheel2_joint" -> "roller_nw_rim_wheel2_link"
+"rim_wheel2_link" -> "roller_s_rim_wheel2_joint" [label="xyz: 0 -0.0271 0.011 \nrpy: -1.5708 -1.11022e-16 -1.5708"]
+"roller_s_rim_wheel2_joint" -> "roller_s_rim_wheel2_link"
+"rim_wheel2_link" -> "roller_se_rim_wheel2_joint" [label="xyz: 0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 5.55112e-17 -0.785398"]
+"roller_se_rim_wheel2_joint" -> "roller_se_rim_wheel2_link"
+"rim_wheel2_link" -> "roller_sw_rim_wheel2_joint" [label="xyz: -0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 -1.11022e-16 -2.35619"]
+"roller_sw_rim_wheel2_joint" -> "roller_sw_rim_wheel2_link"
+"rim_wheel2_link" -> "roller_w_rim_wheel2_joint" [label="xyz: -0.0271 0 0.011 \nrpy: -1.5708 -0 3.14159"]
+"roller_w_rim_wheel2_joint" -> "roller_w_rim_wheel2_link"
+"base_link" -> "rim_wheel3_joint" [label="xyz: 0 -0.393 0.016 \nrpy: 1.5708 -0 3.14159"]
+"rim_wheel3_joint" -> "rim_wheel3_link"
+"rim_wheel3_link" -> "roller_e_rim_wheel3_joint" [label="xyz: 0.0271 0 0.011 \nrpy: -1.5708 0 0"]
+"roller_e_rim_wheel3_joint" -> "roller_e_rim_wheel3_link"
+"rim_wheel3_link" -> "roller_n_rim_wheel3_joint" [label="xyz: 0 0.0271 0.011 \nrpy: -1.5708 1.11022e-16 1.5708"]
+"roller_n_rim_wheel3_joint" -> "roller_n_rim_wheel3_link"
+"rim_wheel3_link" -> "roller_ne_rim_wheel3_joint" [label="xyz: 0.0191626 0.0191626 -0.011 \nrpy: -1.5708 -5.55112e-17 0.785398"]
+"roller_ne_rim_wheel3_joint" -> "roller_ne_rim_wheel3_link"
+"rim_wheel3_link" -> "roller_nw_rim_wheel3_joint" [label="xyz: -0.0191626 0.0191626 -0.011 \nrpy: -1.5708 1.11022e-16 2.35619"]
+"roller_nw_rim_wheel3_joint" -> "roller_nw_rim_wheel3_link"
+"rim_wheel3_link" -> "roller_s_rim_wheel3_joint" [label="xyz: 0 -0.0271 0.011 \nrpy: -1.5708 -1.11022e-16 -1.5708"]
+"roller_s_rim_wheel3_joint" -> "roller_s_rim_wheel3_link"
+"rim_wheel3_link" -> "roller_se_rim_wheel3_joint" [label="xyz: 0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 5.55112e-17 -0.785398"]
+"roller_se_rim_wheel3_joint" -> "roller_se_rim_wheel3_link"
+"rim_wheel3_link" -> "roller_sw_rim_wheel3_joint" [label="xyz: -0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 -1.11022e-16 -2.35619"]
+"roller_sw_rim_wheel3_joint" -> "roller_sw_rim_wheel3_link"
+"rim_wheel3_link" -> "roller_w_rim_wheel3_joint" [label="xyz: -0.0271 0 0.011 \nrpy: -1.5708 -0 3.14159"]
+"roller_w_rim_wheel3_joint" -> "roller_w_rim_wheel3_link"
+"base_link" -> "rim_wheel4_joint" [label="xyz: -0.393 0 0.016 \nrpy: 1.5708 5.55112e-17 1.5708"]
+"rim_wheel4_joint" -> "rim_wheel4_link"
+"rim_wheel4_link" -> "roller_e_rim_wheel4_joint" [label="xyz: 0.0271 0 0.011 \nrpy: -1.5708 0 0"]
+"roller_e_rim_wheel4_joint" -> "roller_e_rim_wheel4_link"
+"rim_wheel4_link" -> "roller_n_rim_wheel4_joint" [label="xyz: 0 0.0271 0.011 \nrpy: -1.5708 1.11022e-16 1.5708"]
+"roller_n_rim_wheel4_joint" -> "roller_n_rim_wheel4_link"
+"rim_wheel4_link" -> "roller_ne_rim_wheel4_joint" [label="xyz: 0.0191626 0.0191626 -0.011 \nrpy: -1.5708 -5.55112e-17 0.785398"]
+"roller_ne_rim_wheel4_joint" -> "roller_ne_rim_wheel4_link"
+"rim_wheel4_link" -> "roller_nw_rim_wheel4_joint" [label="xyz: -0.0191626 0.0191626 -0.011 \nrpy: -1.5708 1.11022e-16 2.35619"]
+"roller_nw_rim_wheel4_joint" -> "roller_nw_rim_wheel4_link"
+"rim_wheel4_link" -> "roller_s_rim_wheel4_joint" [label="xyz: 0 -0.0271 0.011 \nrpy: -1.5708 -1.11022e-16 -1.5708"]
+"roller_s_rim_wheel4_joint" -> "roller_s_rim_wheel4_link"
+"rim_wheel4_link" -> "roller_se_rim_wheel4_joint" [label="xyz: 0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 5.55112e-17 -0.785398"]
+"roller_se_rim_wheel4_joint" -> "roller_se_rim_wheel4_link"
+"rim_wheel4_link" -> "roller_sw_rim_wheel4_joint" [label="xyz: -0.0191626 -0.0191626 -0.011 \nrpy: -1.5708 -1.11022e-16 -2.35619"]
+"roller_sw_rim_wheel4_joint" -> "roller_sw_rim_wheel4_link"
+"rim_wheel4_link" -> "roller_w_rim_wheel4_joint" [label="xyz: -0.0271 0 0.011 \nrpy: -1.5708 -0 3.14159"]
+"roller_w_rim_wheel4_joint" -> "roller_w_rim_wheel4_link"
+"base_link" -> "rplidar_joint" [label="xyz: 0 0 0.09 \nrpy: 0 -0 0"]
+"rplidar_joint" -> "rplidar_link"
+}

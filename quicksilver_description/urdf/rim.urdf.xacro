@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rim">
+
+<xacro:include filename="$(find quicksilver_description)/urdf/roller.urdf.xacro"/>
+
+<xacro:macro
+	name="rim_macro"
+	params="name color xyz rpy">
+
+		<link name="rim_${name}_link">
+			<inertial>
+				<origin xyz="0 0 -0.000343"/>
+				<mass value="0.1"/>
+				<inertia
+					ixx="3.5882205135936479220061309613548e-5"
+					ixy="0"
+					ixz="0"
+					iyy="3.5882205135936479220061309613548e-5"
+					iyz="0"
+					izz="4.2502518671672900528621921656748e-5"/>
+
+
+			</inertial>
+			<visual>
+				<geometry>
+
+					<mesh filename="package://quicksilver_description/mesh/rim.stl" scale="2 2 2" />
+					
+				</geometry>
+				<material name="rim_${name}_material">
+					<color rgba="${color} 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<mesh filename="package://quicksilver_description/mesh/rim.stl" scale="2 2 2"/>
+				</geometry>
+			</collision>
+			
+		</link>
+
+		<joint
+			name="rim_${name}_joint"
+			type="continuous">
+
+			<parent link="base_link" />
+			<child link="rim_${name}_link" />
+			<axis xyz="0 0 1"/>
+			<origin xyz="${xyz}" rpy="${rpy}"/>
+
+		</joint>
+		<xacro:roller_macro
+			parent="${name}"
+			name="e"
+			xyz="0.0271 0 0.011"
+			rpy="-1.570796326794896 0 0"
+		/>
+		<xacro:roller_macro
+			parent="${name}"
+			name="ne"
+			xyz="0.01916259378 0.01916259378 -0.011"
+			rpy="-1.570796326794896 0 0.7853981633974483"
+		/>
+		<xacro:roller_macro
+			parent="${name}"
+			name="n"
+			xyz="0 0.0271 0.011"
+			rpy="-1.570796326794896 0 1.570796326794896"
+		/>
+		<xacro:roller_macro
+			parent="${name}"
+			name="nw"
+			xyz="-0.01916259378 0.01916259378 -0.011"
+			rpy="-1.570796326794896 0 2.356194490192345"
+		/>
+		<xacro:roller_macro
+			parent="${name}"
+			name="w"
+			xyz="-0.0271 0 0.011"
+			rpy="-1.570796326794896 0 3.141592653589793"
+		/>
+		<xacro:roller_macro
+			parent="${name}"
+			name="sw"
+			xyz="-0.01916259378 -0.01916259378 -0.011"
+			rpy="-1.570796326794896 0 -2.356194490192345"
+		/>
+		<xacro:roller_macro
+			parent="${name}"
+			name="s"
+			xyz="0 -0.0271 0.011"
+			rpy="-1.570796326794896 0 -1.570796326794896"
+		/>
+		<xacro:roller_macro
+			parent="${name}"
+			name="se"
+			xyz="0.01916259378 -0.01916259378 -0.011"
+			rpy="-1.570796326794896 0 -0.7853981633974483"
+		/>
+		<!-- <transmission>标签唯一指定了一个传动的标签，name可以自己定义，也可以与joint名相同。
+		<type>标签指定了传动的类型，选择transmission_interface/SimpleTransmission即可。
+		<joint>标签（可定义一个或多个）指定这个传动所依赖的关节，拥有如下标签<hardwareInterface>。
+		<hardwareInterface>（在joint下，可定义一个或多个）指定支持的硬件接口空间。用于结合控制器使用硬件接口来向硬件接口发送和接受指令，请注意：
+		①当在RobotHW中加载此transmission时，此标签的值应为hardware_interface / XXX。
+		②在Gazebo中加载此transmission时，此标记的值应为XXX。
+		<actuator>标签（定义一个或多个）指定了与joint传动连接的执行器，名字可以随意定义，拥有如下标签<mechanicalReduction>、<hardwareInterface>及<motorTorqueConstant>。
+		<mechanicalReduction>（可选）定义了电机／关节减速比。
+		<hardwareInterface>（可选，只有Indigo及以前版本的在这里指定，目前版本已经移到joint标签下）定义了支持的硬件接口。
+		<motorTorqueConstant>（可选）定义了电机的转矩参数。 -->
+		<transmission name="rim_${name}_transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="rim_${name}_joint">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="rim_${name}_motor">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
+		</transmission>
+
+	</xacro:macro>
+
+</robot>
