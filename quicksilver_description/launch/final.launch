@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find quicksilver_description)/launch/gazebo.launch" />
+    <include file="$(find quicksilver_description)/launch/riviz.launch" />
+</launch>

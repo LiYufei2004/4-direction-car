@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="quicksilver">
+	<xacro:include filename="$(find quicksilver_description)/urdf/rplidar.urdf.xacro"/>
+	<xacro:include filename="$(find quicksilver_description)/urdf/rim.urdf.xacro"/>
+	<xacro:property name="base_link_radius" value="0.375" /> <!-- base_link 半径 -->
+    <xacro:property name="base_link_length" value="0.03" /> <!-- base_link 长 -->
+	<link name="base_footprint"/>
+ 		<material name="white">
+    		<color rgba="0 0 0 1"/>
+ 	 	</material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder radius="${base_link_radius}" length="${base_link_length}" />
+    </geometry>
+    <origin rpy = "0 0 0" xyz="0 0 0.04"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+	  <origin xyz="0.0 0.0 0.04" rpy="0.0 0.0 0.0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="0.04695"
+        ixy="0"
+        ixz="0"
+        iyy="0.04695"
+        iyz="0"
+        izz="0.09385"/>
+      </inertial>
+	  <collision>
+		<geometry>
+			<box size="0.75 0.75 0.03"/>
+		</geometry>
+	  </collision>
+  </link>
+  <joint name="base_joint" type="fixed">
+		<parent link="base_footprint" />
+		<child link="base_link" />
+		<origin xyz="0 0 0.5"/>
+	</joint>
+	
+<xacro:rplidar
+		name="rplidar"
+		xyz="0.35 0.0 0.09"
+		rpy="0.0 0.0 0.0"
+		color="1 0.84 0 1" />
+  <xacro:rim_macro
+		name="wheel4"
+    	color="0.6 0 0"
+		xyz="-0.393 0 0.016"
+		rpy="1.570796326794896 0 1.5708"/>
+	<xacro:rim_macro
+		name="wheel3"
+		color="0 0.6 0"
+		xyz="0 -0.393 0.016"
+		rpy="1.570796326794896 0 3.141592653589793"/>
+	<xacro:rim_macro
+		name="wheel2"
+		color="0.6 0 0"
+		xyz="0.393 0 0.016"
+		rpy="1.570796326794896 0 -1.5708"/>
+	<xacro:rim_macro
+		name="wheel1"
+		color="0 0.6 0.0"
+		xyz="0 0.393 0.016"
+		rpy="1.570796326794896 0 0"/>
+
+
+	<gazebo reference="base_link">
+    		<material>Gazebo/Black</material>
+			<mu1>0.2</mu1>
+			<mu2>0.2</mu2>
+			<kp>500000.0</kp>
+			<kd>10.0</kd>
+			<minDepth>0.001</minDepth>
+			<maxVel>0.5</maxVel>
+			<fdir1>1 0 0</fdir1>
+  	</gazebo>
+
+	<gazebo reference="rim_wheel3_link">
+    		<material>Gazebo/Green</material>
+			<mu1>0.2</mu1>
+			<mu2>0.2</mu2>
+			<kp>500000.0</kp>
+			<kd>10.0</kd>
+			<minDepth>0.001</minDepth>
+			<maxVel>0.5</maxVel>
+			<fdir1>1 0 0</fdir1>
+  	</gazebo>
+
+	<gazebo reference="rim_wheel4_link">
+    		<material>Gazebo/Red</material>
+			<mu1>0.2</mu1>
+			<mu2>0.2</mu2>
+			<kp>500000.0</kp>
+			<kd>10.0</kd>
+			<minDepth>0.001</minDepth>
+			<maxVel>0.5</maxVel>
+			<fdir1>1 0 0</fdir1>
+  	</gazebo>
+
+	<gazebo reference="rim_wheel1_link">
+    		<material>Gazebo/Green</material>
+			<mu1>0.2</mu1>
+			<mu2>0.2</mu2>
+			<kp>500000.0</kp>
+			<kd>10.0</kd>
+			<minDepth>0.001</minDepth>
+			<maxVel>0.5</maxVel>
+			<fdir1>1 0 0</fdir1>
+  	</gazebo>
+  <gazebo reference="rim_wheel2_link">
+    		<material>Gazebo/Red</material>
+			<mu1>0.2</mu1>
+			<mu2>0.2</mu2>
+			<kp>500000.0</kp>
+			<kd>10.0</kd>
+			<minDepth>0.001</minDepth>
+			<maxVel>0.5</maxVel>
+			<fdir1>1 0 0</fdir1>
+  </gazebo>
+  <!--roscontrol built
+	  paramater config:config文件夹目录下car_joint.yaml
+  -->
+		<!-- <robotNamespace>用来定义插件其对象的ROS命名空间，默认是URDF或者SDF对应的机器人名称。
+		<contolPeriod>用来定义控制器的更新周期，单位为秒，默认使用Gazebo的周期。
+		<robotParam>用来定义ROS参数服务器上的机器人描述(URDF)路径，默认是"/robot_description"。
+		<robotSimType>用来定义机器人仿真接口所使用的插件库名称，默认是"DefaultRobotHWSim"。
+		<legacyModeNS>用来兼容之前ROS版本的配置。 -->
+
+	<gazebo>
+		
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/quicksilver</robotNamespace>
+		</plugin>
+	</gazebo>
+ </robot>
